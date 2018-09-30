@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import chunk from 'lodash/chunk';
 import './index.css';
 // class Square extends React.Component {
 //     render() {
@@ -36,7 +37,7 @@ class Board extends React.Component {
         />);
     }
 
-    render() {
+     render() {
 
         // const winner = calculateWinner(this.state.squares);
         // let status;
@@ -45,28 +46,20 @@ class Board extends React.Component {
         // }else{
         //     status = 'The next player: ' + (this.state.xIsNext ? 'X' : 'O')
         // }
-
-
-        return (
-            <div>
-                {/*<div className="status">{status}</div>*/}
-                <div className="board-row">
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </div>
-                <div className="board-row">
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </div>
-            </div>
-        );
+         return (
+           <div>
+               {chunk(this.props.squares, 3).map((rows, rowsIndex) =>{
+                return (
+                    <div className="board-row" key={rowsIndex}>
+                   {rows.map((column, columnIndex)=>
+                        this.renderSquare(rowsIndex * 3 + columnIndex)
+                   )}
+                   </div>
+                   )
+               })
+               }
+           </div>
+         );
     }
 }
 
@@ -87,6 +80,7 @@ class Game extends React.Component {
 
     handleClick(i){
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
+        //原本就有了一个空数组，history在浅备份时需要在stepNumber的基础上加1
         const current = history[history.length - 1];
 
         const squares = current.squares.slice();  //浅备份
