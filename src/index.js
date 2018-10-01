@@ -140,6 +140,12 @@ class Game extends React.Component {
             status = "The next player is : " + (this.state.xIsNext ? "X": "O");
         }
 
+        function Sort(e) {
+            e.preventDefault();
+            const listReverse = moves.reverse();
+        }
+        const listReverse = moves.reverse();
+
         return (
             <div className="game">
                 <div className="game-board">
@@ -150,6 +156,9 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{/* status */status}</div>
+                    <div><button onClick={Sort()}>
+                        Sort
+                    </button></div>
                     <ol>{/* TODO */moves}</ol>
                 </div>
             </div>
