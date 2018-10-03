@@ -151,8 +151,11 @@ class Game extends React.Component {
             status = "The next player is : " + (this.state.xIsNext ? "X": "O");
         }
 
+        const isSortToggleOn = this.state.isSortToggleOn;
 
-        const listReverse = moves.reverse();
+        if(!isSortToggleOn) {
+            moves.reverse();
+        }
 
         return (
             <div className="game">
