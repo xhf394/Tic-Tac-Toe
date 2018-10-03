@@ -75,7 +75,16 @@ class Game extends React.Component {
             ],
         stepNumber: 0,
         xIsNext: true,
+        isSortToggleOn: true,
         };
+
+        this.sortClick = this.sortClick.bind(this);
+    }
+
+    sortClick(){
+        this.setState(prevState => ({
+            isSortToggleOn: !prevState.isSortToggleOn
+        }));
     }
 
     handleClick(i){
@@ -110,6 +119,8 @@ class Game extends React.Component {
             step: this.state.history.step,
         });
     }
+
+
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -140,10 +151,7 @@ class Game extends React.Component {
             status = "The next player is : " + (this.state.xIsNext ? "X": "O");
         }
 
-        function Sort(e) {
-            e.preventDefault();
-            const listReverse = moves.reverse();
-        }
+
         const listReverse = moves.reverse();
 
         return (
@@ -156,8 +164,8 @@ class Game extends React.Component {
                 </div>
                 <div className="game-info">
                     <div>{/* status */status}</div>
-                    <div><button onClick={Sort()}>
-                        Sort
+                    <div><button onClick={this.sortClick}>
+                        {this.state.isSortToggleOn ? 'Unsort' : 'Sort'}
                     </button></div>
                     <ol>{/* TODO */moves}</ol>
                 </div>
