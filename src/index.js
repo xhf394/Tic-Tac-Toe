@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import chunk from 'lodash/chunk';
+import classNames from 'classnames';
 import './index.css';
 // class Square extends React.Component {
 //     render() {
@@ -13,11 +14,10 @@ import './index.css';
 // }
 
 function Square(props){
-    var classNames = require('classnames');
-    var highlightClass = classNames({
-        squares: true,
-        'highlight-winner': this.props.isWon
-    });
+    var highlightClass = classNames(
+        'square',
+        {'highlight-winner':props.isWon}
+    );
     return (
         <button className={highlightClass} onClick={props.onClick}>
             {props.value}
