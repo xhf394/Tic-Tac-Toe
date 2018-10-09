@@ -13,8 +13,13 @@ import './index.css';
 // }
 
 function Square(props){
+    var classNames = require('classnames');
+    var highlightClass = classNames({
+        squares: true,
+        'highlight-winner': this.props.isWon
+    });
     return (
-        <button className="square" onClick={props.onClick}>
+        <button className={highlightClass} onClick={props.onClick}>
             {props.value}
         </button>
     );
@@ -76,6 +81,7 @@ class Game extends React.Component {
         stepNumber: 0,
         xIsNext: true,
         isSortToggleOn: true,
+        isWon: false
         };
 
         this.sortClick = this.sortClick.bind(this);
@@ -203,3 +209,4 @@ function calculateWinner(squares){
     }
     return null;
 }
+
