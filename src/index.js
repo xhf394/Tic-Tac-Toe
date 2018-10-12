@@ -60,18 +60,27 @@ class Board extends React.Component {
          return (
            <div>
                {chunk(this.props.squares, 3).map((rows, rowsIndex) =>{
-                return (
+                if(rowsIndex == 1){
+                    return(
+                        <div className="board-row" style={{border: "1px solid red"}} key={rowsIndex}>
+                        {rows.map((column, columnIndex)=>
+                            this.renderSquare(rowsIndex * 3 + columnIndex)
+                        )}
+                </div>
+                )}
+                else{
+                   return (
                     <div className="board-row" key={rowsIndex}>
                    {rows.map((column, columnIndex)=>
                         this.renderSquare(rowsIndex * 3 + columnIndex)
                    )}
                    </div>
-                   )
+                )}
                })
                }
            </div>
-         );
-    }
+     )
+         };
 }
 
 class Game extends React.Component {
