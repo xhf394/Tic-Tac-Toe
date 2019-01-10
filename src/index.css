@@ -1,7 +1,7 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
-    background-color: #7b7b7b;
+    background-color: #14bdac;
 }
 
 ol, ul {
@@ -21,18 +21,18 @@ ol, ul {
 
 .square {
     background: none;
+    /*border: 2px solid ivory;*/
     border: none;
     float: left;
     font-size: 24px;
     font-weight: bold;
     line-height: 50px;
     height: 50px;
-    margin-right: -1px;
-    margin-top: -1px;
     padding: 0;
     text-align: center;
     width: 50px;
     color: #2f89c5;
+    border-width: 4px
 }
 
 .square:focus {
@@ -56,3 +56,7 @@ ol, ul {
     margin-left: 20px;
 }
 
+.winner-style {
+    color: red;
+    border-color: #2f89c5;
+}
