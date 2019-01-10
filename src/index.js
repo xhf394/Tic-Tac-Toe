@@ -194,10 +194,18 @@ class Game extends React.Component {
 
         let status;
         if(winner){
-            status = 'Winner is : ' + winner;
-
+            status = 'Winner is : ';
         }else{
-            status = "The next player is : " + (this.state.xIsNext ? "X": "O");
+            status = "The next player is : ";
+        }
+
+        //specify which one is the next turn or winner;
+        let statusSpecification;
+        if(winner){
+        	statusSpecification = winner;
+        }
+        else{
+        	statusSpecification = (this.state.xIsNext ? "X": "O");
         }
 
 
@@ -209,6 +217,11 @@ class Game extends React.Component {
 
         return (
             <div className="game">
+                <div className="game-info game-turn">
+                    <div>{status}</div> 
+                    <div style={{fontSize: "24px", paddingLeft: "10px", fontWeight: "bold"}}>{statusSpecification}</div>
+                </div>
+
                 <div className="game-board">
                     <Board
                     squares = {current.squares}
@@ -216,8 +229,22 @@ class Game extends React.Component {
                     winLine ={winLine}
                     />
                 </div>
+                
+                <div className="game-control">
+                	<div>
+                		<button>
+                			Restart
+                		</button>
+                	</div>
+
+                	<div>
+                		<button>
+                			Go Back
+                		</button>
+                	</div>
+                </div>
+                
                 <div className="game-info">
-                    <div>{/* status */status}</div>
                     <div>
                         <button onClick={this.sortClick}>
                             {this.state.isSortToggleOn ? 'Unsort' : 'Sort'}
