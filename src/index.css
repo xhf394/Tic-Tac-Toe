@@ -26,11 +26,11 @@ ol, ul {
     float: left;
     font-size: 24px;
     font-weight: bold;
-    line-height: 50px;
-    height: 50px;
+    line-height: 80px;
+    height: 80px;
     padding: 0;
     text-align: center;
-    width: 50px;
+    width: 80px;
     color: #2f89c5;
     border-width: 4px
 }
@@ -45,18 +45,25 @@ ol, ul {
 
 .game {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     align-content: flex-end;
     width:100%;
-    margin-top:200px;
+    margin-top:150px;
 }
 
 .game-info {
-    margin-left: 20px;
+    padding: 20px;
 }
 
 .winner-style {
     color: red;
     border-color: #2f89c5;
+}
+
+.game-turn {
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
 }
