@@ -127,6 +127,8 @@ class Game extends React.Component {
         };
 
         this.sortClick = this.sortClick.bind(this);
+        this.restartClick = this.restartClick.bind(this);
+        this.goBackClick = this.goBackClick.bind(this);
     }
 
     sortClick(){
@@ -135,6 +137,32 @@ class Game extends React.Component {
         }));
     }
 
+    restartClick(){
+        //reset all the data
+        this.setState(prevState => ({
+            history: [
+                {
+                squares: Array(9).fill(null),
+                historyStep: 'Game Start',
+                }
+            ],
+            stepNumber: 0,
+            xIsNext: true,
+            isSortToggleOn: true, 
+        }))
+    }
+    
+    goBackClick() {
+        //soft copy history 
+        const history = this.state.history.slice(0, this.state.stepNumber + 1);
+
+        //roll back one step
+        this.setState(prevState => ({
+            history: history.slice(0, this.state.stepNumber),
+            stepNumber: history.length-2,
+            xIsNext: !this.state.xIsNext
+        }))
+    }
     handleClick(i){
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         //原本就有了一个空数组，history在浅备份时需要在stepNumber的基础上加1
@@ -219,7 +247,7 @@ class Game extends React.Component {
             <div className="game">
                 <div className="game-info game-turn">
                     <div>{status}</div> 
-                    <div style={{fontSize: "24px", paddingLeft: "10px", fontWeight: "bold"}}>{statusSpecification}</div>
+                    <div className="game-status-specification">{statusSpecification}</div>
                 </div>
 
                 <div className="game-board">
@@ -232,13 +260,13 @@ class Game extends React.Component {
                 
                 <div className="game-control">
                 	<div>
-                		<button>
+                		<button onClick={this.restartClick}>
                 			Restart
                 		</button>
                 	</div>
 
                 	<div>
-                		<button>
+                		<button onClick={this.goBackClick}>
                 			Go Back
                 		</button>
                 	</div>
