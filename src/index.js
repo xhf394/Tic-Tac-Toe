@@ -157,11 +157,14 @@ class Game extends React.Component {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
 
         //roll back one step
-        this.setState(prevState => ({
+        if(this.state.stepNumber){
+            this.setState(prevState => ({
             history: history.slice(0, this.state.stepNumber),
             stepNumber: history.length-2,
             xIsNext: !this.state.xIsNext
         }))
+        }
+        
     }
     handleClick(i){
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
@@ -244,42 +247,50 @@ class Game extends React.Component {
         }
 
         return (
-            <div className="game">
-                <div className="game-info game-turn">
-                    <div>{status}</div> 
-                    <div className="game-status-specification">{statusSpecification}</div>
-                </div>
 
-                <div className="game-board">
-                    <Board
-                    squares = {current.squares}
-                    onclick ={(i)=> this.handleClick(i)}
-                    winLine ={winLine}
-                    />
+            <div>
+                <div>
+                    <button>Game Start !</button>
                 </div>
-                
-                <div className="game-control">
-                	<div>
-                		<button onClick={this.restartClick}>
-                			Restart
-                		</button>
-                	</div>
-
-                	<div>
-                		<button onClick={this.goBackClick}>
-                			Go Back
-                		</button>
-                	</div>
-                </div>
-                
-                <div className="game-info">
-                    <div>
-                        <button onClick={this.sortClick}>
-                            {this.state.isSortToggleOn ? 'Unsort' : 'Sort'}
-                        </button>
+                <div className="game">
+                    <div className="game-info game-turn">
+                        <div>{status}</div> 
+                        <div className="game-status-specification">{statusSpecification}</div>
                     </div>
-                    <ul>{/* TODO */moves}</ul>
-                </div>
+
+                    <div className="game-board">
+                        <Board
+                        squares = {current.squares}
+                        onclick ={(i)=> this.handleClick(i)}
+                        winLine ={winLine}
+                        />
+                    </div>
+                
+                    <div className="game-control">
+                	    <div>
+                		    <button onClick={this.restartClick}>
+                			    Restart
+                		    </button>
+                	    </div>
+
+                	    <div>
+                		    <button onClick={this.goBackClick}>
+                			    Go Back
+                		    </button>
+                	    </div>
+                    </div>
+
+                
+                
+                    <div className="game-info">
+                        <div>
+                            <button onClick={this.sortClick}>
+                                {this.state.isSortToggleOn ? 'Unsort' : 'Sort'}
+                            </button>
+                        </div>
+                        <ul>{/* TODO */moves}</ul>
+                    </div>
+                </div>    
             </div>
         );
     }
