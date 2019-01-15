@@ -8,6 +8,44 @@ ol, ul {
     padding-left: 30px;
 }
 
+/* Block */
+.game {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: flex-end;
+    width:100%;
+    margin-top:120px;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: white;
+    color: #888;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 18px;
+}
+
+/* Elements */
+.game__info {
+    padding: 20px;
+}
+
+.game__control {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.game__turn {
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+}
+
 .board-row:after {
     clear: both;
     content: "";
@@ -42,40 +80,24 @@ ol, ul {
     background: #ddd;
 }
 
-.game {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: flex-end;
-    width:100%;
-    margin-top:120px;
-}
 
-.game-info {
-    padding: 20px;
-}
 
 .winner-style {
     color: red;
     border-color: #2f89c5;
 }
 
-.game-turn {
-    font-size: 20px;
-    display: flex;
-    align-items: flex-end;
-}
 
-.game-control {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    margin-top: 20px;
-}
 
 @media (max-width: 576px) {
-    .game-turn {
+    .game__turn,
+    .game__board, 
+    .game__control,
+    .game__info {
+        width: 260px;
+    }
+
+    .game__turn {
         font-size: 22px;
         margin-bottom: 20px;
     }
@@ -86,7 +108,7 @@ ol, ul {
         font-weight: bold;
     }
 
-    .game-control {
+    .game__control {
         width: 220px;
 
     }

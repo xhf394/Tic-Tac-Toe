@@ -253,12 +253,12 @@ class Game extends React.Component {
                     <button>Game Start !</button>
                 </div>
                 <div className="game">
-                    <div className="game-info game-turn">
+                    <div className="game__turn">
                         <div>{status}</div> 
                         <div className="game-status-specification">{statusSpecification}</div>
                     </div>
 
-                    <div className="game-board">
+                    <div className="game__board">
                         <Board
                         squares = {current.squares}
                         onclick ={(i)=> this.handleClick(i)}
@@ -266,15 +266,15 @@ class Game extends React.Component {
                         />
                     </div>
                 
-                    <div className="game-control">
+                    <div className="game__control">
                 	    <div>
-                		    <button onClick={this.restartClick}>
+                		    <button onClick={this.restartClick} className="btn">
                 			    Restart
                 		    </button>
                 	    </div>
 
                 	    <div>
-                		    <button onClick={this.goBackClick}>
+                		    <button onClick={this.goBackClick} className="btn">
                 			    Go Back
                 		    </button>
                 	    </div>
@@ -282,7 +282,7 @@ class Game extends React.Component {
 
                 
                 
-                    <div className="game-info">
+                    <div className="game__info">
                         <div>
                             <button onClick={this.sortClick}>
                                 {this.state.isSortToggleOn ? 'Unsort' : 'Sort'}
