@@ -111,6 +111,41 @@ class Board extends React.Component {
     };
 }
 
+class StartGame extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            startGame:false
+        }
+        this.startGameClick = this.startGameClick.bind(this);
+    }
+
+    startGameClick() {
+        this.setState({
+            startGame:true
+        })
+    }
+
+    render() {
+
+        if(!this.state.startGame) {
+            return(
+                <div>
+                    <button className="startGame" onClick={this.startGameClick}>
+                        Game Start!
+                    </button>    
+                </div>
+            )  
+        }
+        else {
+            return(
+                <div></div>
+            )
+        }
+        
+    }
+}
+
 class Game extends React.Component {
     constructor(props){
         super(props);
@@ -131,13 +166,13 @@ class Game extends React.Component {
         this.goBackClick = this.goBackClick.bind(this);
     }
 
-    sortClick(){
+    sortClick() {
         this.setState(prevState => ({
             isSortToggleOn: !prevState.isSortToggleOn
         }));
     }
 
-    restartClick(){
+    restartClick() {
         //reset all the data
         this.setState(prevState => ({
             history: [
@@ -249,9 +284,8 @@ class Game extends React.Component {
         return (
 
             <div>
-                <div>
-                    <button>Game Start !</button>
-                </div>
+                <StartGame />
+
                 <div className="game">
                     <div className="game__turn">
                         <div>{status}</div> 
