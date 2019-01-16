@@ -1,7 +1,7 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
     background-color: #14bdac;
+    margin:0;
 }
 
 ol, ul {
@@ -14,9 +14,8 @@ ol, ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    align-content: flex-end;
-    width:100%;
     margin-top:120px;
+    margin-left: -10px;
 }
 
 .btn {
@@ -35,6 +34,14 @@ ol, ul {
 .btn:focus {
     outline: 0;
 } 
+
+.startGame {
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
 /* Elements */
 .game__info {
     padding: 20px;

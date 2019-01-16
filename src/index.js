@@ -130,8 +130,8 @@ class StartGame extends React.Component {
 
         if(!this.state.startGame) {
             return(
-                <div>
-                    <button className="startGame" onClick={this.startGameClick}>
+                <div className="startGame">
+                    <button onClick={this.startGameClick}>
                         Game Start!
                     </button>    
                 </div>
