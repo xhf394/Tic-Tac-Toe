@@ -37,12 +37,11 @@ ol, ul {
     background-color: #333333;
 }
 
-
-
 .btn:focus {
     outline: 0;
 } 
 
+/*before game start, start button occupies the whole page */
 .startGame {
     top:0;
     bottom:0;
@@ -62,7 +61,7 @@ ol, ul {
 
 .game__control {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 20px;
 }
 
@@ -71,9 +70,15 @@ ol, ul {
     padding: 20px;
     font-size: 20px;
     display: flex;
+    justify-content:center;
     flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
+}
+
+.game__board {
+    display: flex;
+    justify-content: space-around;
 }
 
 .board-row:after {
@@ -143,4 +148,23 @@ ol, ul {
         height: 86.66666px;
     }
 
-};
+}
+
+@media (min-width: 577px) and (max-width: 960px) {
+    .game__turn,
+    .game__board, 
+    .game__control,
+    .game__info {
+        width: 500px;
+    }
+
+    .square {
+        width: 116.66666px;
+        height: 116.66666px;
+    }
+
+    .game__turn {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+}
