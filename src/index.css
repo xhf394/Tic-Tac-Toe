@@ -167,4 +167,38 @@ ol, ul {
         font-size: 22px;
         margin-bottom: 20px;
     }
+
+    .btn {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+}
+
+@media (min-width: 961px) {
+    .game {
+        margin-top: 60px;
+    }
+    .game__turn,
+    .game__board, 
+    .game__control,
+    .game__info {
+        width: 700px;
+    }
+
+    .square {
+        width: 156.66666px;
+        height: 156.66666px;
+    }
+
+    .game__turn {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
 }
