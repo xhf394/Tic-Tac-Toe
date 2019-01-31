@@ -29,12 +29,14 @@ ol, ul {
     padding:10px 5px;
     border: 0;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .btn__startGame {
     margin: auto;
     color: white;
     background-color: #333333;
+    height: 60px;
 }
 
 .btn:focus {
@@ -104,7 +106,9 @@ ol, ul {
     text-align: center;
     width: 80px;
     color: #2f89c5;
-    border-width: 4px
+    border-width: 4px;
+    transition: 0.4s ease;
+
 }
 
 .square:focus {
@@ -118,39 +122,51 @@ ol, ul {
 
 
 .winner-style {
-    color: red;
+    color: #d00a76;
     border-color: #2f89c5;
+
 }
 
 
 
-@media (max-width: 576px) {
+@media (min-width: 0px) and (max-width: 577px) {
     .game__turn,
     .game__board, 
     .game__control,
     .game__info {
-        width: 260px;
+        width: 350px;
+    }
+    
+    .square {
+        width: 86.66666px;
+        height: 86.66666px;
     }
 
     .game__turn {
         font-size: 20px;
         margin-bottom: 20px;
     }
+    
+    .btn {
+        font-size: 16px;
+        font-weight: 600;
+    }
 
-    .game-status-specification {
+/*    .game-status-specification {
         font-size: 24px;
         padding-left: 10px;
         font-weight: bold;
-    }
+    }*/
 
-    .square {
-        width: 86.66666px;
-        height: 86.66666px;
+
+
+     .winner-transition {
+        font-size: 40px;
     }
 
 }
 
-@media (min-width: 577px) and (max-width: 960px) {
+@media (min-width: 578px) and (max-width: 960px) {
     .game__turn,
     .game__board, 
     .game__control,
@@ -171,6 +187,10 @@ ol, ul {
     .btn {
         font-size: 18px;
         font-weight: 600;
+    }
+
+     .winner-transition {
+        font-size: 50px;
     }
 
 }
@@ -199,6 +219,10 @@ ol, ul {
     .btn {
         font-size: 20px;
         font-weight: 600;
+    }
+
+    .winner-transition {
+        font-size: 60px;
     }
 
 }

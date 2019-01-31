@@ -1,3 +1,6 @@
+import 'core-js';
+import 'raf/polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import chunk from 'lodash/chunk';
@@ -49,7 +52,7 @@ import './index.css';
 function Square(props){
     if(props.highlight){
         return (
-            <button className="square winner-style" onClick={props.onClick} style={props.style} >
+            <button className="square winner-style winner-transition" onClick={props.onClick} style={props.style} >
                 {props.value}
             </button>
         );
